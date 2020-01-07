@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 import BinaryTree from './components/BinaryTree';
-// import {RightPanel, RightPanelProps} from './components/RightPanel';
-import RightPanel from './components/RightPanel'
+import RightPanel from './components/RightPanel';
+import { NeighborsTableProps } from './components/NeighborsTable';
 
-class Node {
+export class Node {
   data: number;
   right: Node | null;
   left: Node | null;
@@ -13,6 +13,11 @@ class Node {
 		this.right = null;
 		this.left = null;
 	}
+}
+
+interface D3Hierarchy {
+    name: string;
+    children: [];
 }
 
 class BinarySearchTree {
@@ -72,20 +77,20 @@ class BinarySearchTree {
     }
   
     transformToD3Hierarchy() {
-        function dfs(node: any, output: any = {}) {
+        function dfs(node: Node | null, output: any = {}) {
             if (node !== null) {
                 output.name = String(node.data);
+                if (node.left !== null) {
+                    output.children = [];
+                    output.children.push(dfs(node.left));
+                }
+                if (node.right !== null) {
+                    if (!output.children) {
+                        output.children = [];
+                    }
+                    output.children.unshift(dfs(node.right));
+                }
             }
-            if (node.left !== null) {
-			    output.children = [];
-			    output.children.push(dfs(node.left));
-		    }
-		    if (node.right !== null) {
-			    if (!output.children) {
-				    output.children = [];
-			    }
-			    output.children.unshift(dfs(node.right));
-		    }
 		    return output
 	    }
 	    return dfs(this.root)
@@ -142,7 +147,7 @@ class App extends React.Component<{}, AppState> {
 
         const treeData = this.state.tree.transformToD3Hierarchy();
 
-        const neighborsTableProps = {
+        const neighborsTableProps: NeighborsTableProps = {
             rightNeighbors: this.state.tree.getAllRightNeighbors()
         };
 

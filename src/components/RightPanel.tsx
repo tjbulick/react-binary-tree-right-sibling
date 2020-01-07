@@ -1,11 +1,9 @@
 import React from 'react';
-import NeighborsTable from './NeighborsTable';
+import NeighborsTable, { NeighborsTableProps } from './NeighborsTable';
 import AddToTree from './AddToTree';
 
-export interface RightPanelProps {
-    neighborsTableProps: {
-        rightNeighbors: any;
-    };
+interface RightPanelProps {
+    neighborsTableProps: NeighborsTableProps;
     addToTreeProps: {
         onClick: () => void;
     };
