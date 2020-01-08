@@ -15,9 +15,9 @@ export class Node {
 	}
 }
 
-interface D3Hierarchy {
+export interface D3Hierarchy {
     name: string;
-    children: [];
+    children?: D3Hierarchy[];
 }
 
 class BinarySearchTree {
@@ -53,7 +53,10 @@ class BinarySearchTree {
 	}
 
 	getAllRightNeighbors() {
-		let currentNodes = [this.root];
+        let currentNodes = [];
+        if (this.root !== null) {
+            currentNodes.push(this.root);
+        }
 		let nodesToVisit = [];
 		const neighborsTable = [];
 
@@ -76,22 +79,27 @@ class BinarySearchTree {
 		return (neighborsTable as Node[][])
     }
   
-    transformToD3Hierarchy() {
-        function dfs(node: Node | null, output: any = {}) {
+    transformToD3Hierarchy(): D3Hierarchy | null {
+        // depth first traverse
+        function dfs(node: Node | null) {
             if (node !== null) {
+                const output: D3Hierarchy = {
+                    name: String(node.data)
+                };
                 output.name = String(node.data);
                 if (node.left !== null) {
                     output.children = [];
-                    output.children.push(dfs(node.left));
+                    output.children.push(dfs(node.left) as D3Hierarchy);
                 }
                 if (node.right !== null) {
                     if (!output.children) {
                         output.children = [];
                     }
-                    output.children.unshift(dfs(node.right));
+                    output.children.unshift(dfs(node.right) as D3Hierarchy);
                 }
+                return output
             }
-		    return output
+		    return null
 	    }
 	    return dfs(this.root)
     }
@@ -102,6 +110,7 @@ interface AppState {
 }
 
 class App extends React.Component<{}, AppState> {
+    // компонент не имеет пропсов, но пришлось указать что-то чтобы вызвать конструктор
     constructor(props: any) {
         super(props);
         // создаем дерево и вставляем в него несколько нод

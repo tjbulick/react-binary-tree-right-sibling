@@ -21,4 +21,9 @@ button {
 .right-panel {
     display: flex;
     flex-direction: column;
+    text-align: center;
+}
+
+.binary-tree {
+    width: 800px;
 }
