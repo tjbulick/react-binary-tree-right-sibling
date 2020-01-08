@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/react-binary-tree-right-sibling/static/css/main.34ca694a.chunk.css",
+    "main.js": "/react-binary-tree-right-sibling/static/js/main.8c4538f2.chunk.js",
+    "main.js.map": "/react-binary-tree-right-sibling/static/js/main.8c4538f2.chunk.js.map",
+    "runtime-main.js": "/react-binary-tree-right-sibling/static/js/runtime-main.641cb1ce.js",
+    "runtime-main.js.map": "/react-binary-tree-right-sibling/static/js/runtime-main.641cb1ce.js.map",
+    "static/css/2.021d97f0.chunk.css": "/react-binary-tree-right-sibling/static/css/2.021d97f0.chunk.css",
+    "static/js/2.c5c88b55.chunk.js": "/react-binary-tree-right-sibling/static/js/2.c5c88b55.chunk.js",
+    "static/js/2.c5c88b55.chunk.js.map": "/react-binary-tree-right-sibling/static/js/2.c5c88b55.chunk.js.map",
+    "index.html": "/react-binary-tree-right-sibling/index.html",
+    "precache-manifest.648fe7c7108bd1def0513b8bd1536cdd.js": "/react-binary-tree-right-sibling/precache-manifest.648fe7c7108bd1def0513b8bd1536cdd.js",
+    "service-worker.js": "/react-binary-tree-right-sibling/service-worker.js",
+    "static/css/2.021d97f0.chunk.css.map": "/react-binary-tree-right-sibling/static/css/2.021d97f0.chunk.css.map",
+    "static/css/main.34ca694a.chunk.css.map": "/react-binary-tree-right-sibling/static/css/main.34ca694a.chunk.css.map",
+    "static/js/2.c5c88b55.chunk.js.LICENSE": "/react-binary-tree-right-sibling/static/js/2.c5c88b55.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.641cb1ce.js",
+    "static/css/2.021d97f0.chunk.css",
+    "static/js/2.c5c88b55.chunk.js",
+    "static/css/main.34ca694a.chunk.css",
+    "static/js/main.8c4538f2.chunk.js"
+  ]
+}
